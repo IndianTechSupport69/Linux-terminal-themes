@@ -1,6 +1,6 @@
 {
     "name": "Dracula",
-    "comment": "Ported for Terminix Colour Scheme | https://github.com/robertruse/Tilix-Themes/blob/master/Themes/dracula.json",
+    "comment": "Ported for Terminix Colour Scheme",
     "use-theme-colors": false,
     "foreground-color": "#f8f8f2",
     "background-color": "#1e1f29",

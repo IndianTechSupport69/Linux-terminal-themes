@@ -1,6 +1,6 @@
 {
     "name": "Blazer",
-    "comment": "Ported for Terminix Colour Scheme | https://github.com/robertruse/Tilix-Themes/blob/master/Themes/blazer.json",
+    "comment": "Ported for Terminix Colour Scheme",
     "use-theme-colors": false,
     "foreground-color": "#d9e6f2",
     "background-color": "#0d1926",
