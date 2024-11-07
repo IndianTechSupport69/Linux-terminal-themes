@@ -33,6 +33,6 @@ chmod +x LT-Themes.sh
 
 
 <h2 id="started">🌟 Credits</h2>
-    <a href="https://github.com/robertruse/Tilix-Themes/tree/master">Tilix Themes | robertruse</a>
+    <a href="https://github.com/robertruse/Tilix-Themes/tree/master">❤️‍🔥Tilix Themes | robertruse</a>
     <br>
     <a href="https://github.com/catppuccin/catppuccin">❤️‍🔥Konsole Themes | catppuccin</a>
