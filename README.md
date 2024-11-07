@@ -36,3 +36,4 @@ chmod +x LT-Themes.sh
     <a href="https://github.com/robertruse/Tilix-Themes/tree/master">Tilix Themes | robertruse</a>
     <br>
     <a href="https://github.com/catppuccin/catppuccin">Konsole Themes | catppuccin</a>
+
