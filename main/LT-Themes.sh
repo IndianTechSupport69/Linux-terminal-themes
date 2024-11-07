@@ -51,9 +51,62 @@ select terminal in "${installed_terminals[@]}"; do
             if [ -f "$(dirname "$0")/themes/kitty/kitty.conf" ]; then
                 mkdir -p ~/.config/kitty
                 cp "$(dirname "$0")/themes/kitty/kitty.conf" ~/.config/kitty/kitty.conf
+                if [ $? -ne 0 ]; then
+                    echo "Permission denied. Please run the script with sudo."
+                    exit 1
+                fi
                 echo "kitty configuration has been updated."
             else
                 echo "kitty.conf not found in $(dirname "$0")/themes/kitty/"
+            fi
+        elif [ "$terminal" == "tilix" ]; then
+            if [ -d "/usr/share/tilix/schemes" ]; then
+                tilix_dir="/usr/share/tilix/schemes"
+            elif [ -d "$HOME/.config/tilix/schemes" ]; then
+                tilix_dir="$HOME/.config/tilix/schemes"
+            else
+                echo "No valid tilix schemes directory found."
+                break
+            fi
+
+            theme_dir="$(dirname "$0")/themes/tilix"
+            if [ ! -d "$theme_dir" ]; then
+                echo "No tilix themes directory found in $theme_dir"
+                break
+            fi
+
+            themes=($(ls "$theme_dir"/*.json 2>/dev/null))
+            if [ ${#themes[@]} -eq 0 ]; then
+                echo "No .json theme files found in $theme_dir"
+                break
+            fi
+
+            echo "Available themes:"
+            for theme in "${themes[@]}"; do
+                echo "$(basename "$theme" .json)"
+            done
+
+            echo "Type the name of the theme you want to add or type ALL to add all themes:"
+            read -r selected_theme
+
+            if [ "$selected_theme" == "ALL" ]; then
+                cp "$theme_dir"/*.json "$tilix_dir"
+                if [ $? -ne 0 ]; then
+                    echo "Permission denied. Please run the script with sudo."
+                    exit 1
+                fi
+                echo "All themes have been copied to $tilix_dir"
+            else
+                if [ -f "$theme_dir/$selected_theme.json" ]; then
+                    cp "$theme_dir/$selected_theme.json" "$tilix_dir"
+                    if [ $? -ne 0 ]; then
+                        echo "Permission denied. Please run the script with sudo."
+                        exit 1
+                    fi
+                    echo "Theme $selected_theme has been copied to $tilix_dir"
+                else
+                    echo "Theme $selected_theme not found in $theme_dir"
+                fi
             fi
         fi
         # Add your configuration code for other terminals here
