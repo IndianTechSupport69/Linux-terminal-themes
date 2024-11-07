@@ -30,3 +30,8 @@ cd Linux-terminal-themes/main
 chmod +x LT-Themes.sh
 ./LT-Themes.sh
 ```
+
+
+<h2 id="started">🌟 Credits</h2>
+    - Tilix Themes [robertruse] (https://github.com/robertruse/Tilix-Themes/tree/master).
+    - konsole Themes [catppuccin] (https://github.com/catppuccin/catppuccin).
